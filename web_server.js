@@ -30,13 +30,7 @@ const options = {
     cert: fs.readFileSync('${certDir/${domain}/fullchain.pem')
 };
 
-const websites = {
-    'www.trollgod.xyz': '/var/www/trollgod.xyz/',
-    'trollgod.xyz': '/var/www/trollgod.xyz/',
-    'www.shermannetwork.ing': '/var/www/shermannetwork.ing',
-    'shermannetwork.ing': '/var/www/shermannetwork.ing'
-    //more domains here
-};
+const websites = require('./websites');
 
 let server = https.createServer(options, function(request, response){
     const domain = request.headers.host.split(':')[0];
