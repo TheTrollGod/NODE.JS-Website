@@ -9,7 +9,7 @@ http.createServer(function (req, res) {
     response.write('Hello World!');
     response.end();
 }).listen(8080)
-*/
+
 
 
 
@@ -81,9 +81,26 @@ server.listen(port, function() {
     console.log("Server has started!");
 });
 
+*/
 
 
 
 
 
+const express = require('express');
+const app = express();
+const port = 8080;
 
+//Defining a route?
+/*
+app.get("/", (req, res) =>{
+    res.send("Hello World")
+})\*/
+
+app.use(express.static('/var/www/trollgod.xyz'));
+app.use(express.static('/var/www/shermannetwork.ing'))
+
+//Starts server
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
